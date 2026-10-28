@@ -2,8 +2,8 @@ using System.Runtime.InteropServices;
 
 namespace VncKeyBridge;
 
-// Re-sends keystrokes with SendInput in scan-code mode. Needs no driver or administrator,
-// but Windows still marks the result as injected.
+// Re-sends keystrokes with SendInput in scan-code mode, filling in the scan code that
+// VNC servers usually leave empty.
 static class ScanCodeSender
 {
     // Tags our own input so the hook lets it through instead of capturing it again.
