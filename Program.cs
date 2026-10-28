@@ -2,7 +2,7 @@
 using ScreenFix;
 
 using var hook = new InjectedKeyHook(ScanCodeSender.Send);
-Console.WriteLine("ScreenFix running: injected keys are re-sent as scan codes. Ctrl+C to stop.");
+Console.WriteLine("ScreenFix running");
 MessageLoop.Run();
 
 static class MessageLoop
