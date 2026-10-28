@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace VncKeyBridge;
+namespace ScreenFix;
 
 // Low-level keyboard hook that swallows software-injected keys (such as those
 // from a VNC server) and hands them to a callback as scan codes.

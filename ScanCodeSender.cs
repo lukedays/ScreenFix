@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace VncKeyBridge;
+namespace ScreenFix;
 
 // Re-sends keystrokes with SendInput in scan-code mode, filling in the scan code that
 // VNC servers usually leave empty.

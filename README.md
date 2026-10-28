@@ -1,6 +1,6 @@
-# VncKeyBridge
+# ScreenFix
 
-Some Windows applications ignore keys typed through remote-control software (VNC, RealVNC), because the VNC server injects them with only a virtual-key code and no scan code. VncKeyBridge catches those injected keystrokes with a low-level keyboard hook, blocks them, and re-sends them with `SendInput` in scan-code mode, which those applications accept.
+Some Windows applications ignore keys typed through remote-control software (VNC, RealVNC), because the VNC server injects them with only a virtual-key code and no scan code. ScreenFix catches those injected keystrokes with a low-level keyboard hook, blocks them, and re-sends them with `SendInput` in scan-code mode, which those applications accept.
 
 It needs no driver and no administrator rights. Keys from the physical keyboard pass through untouched.
 
@@ -14,7 +14,7 @@ dotnet publish -c Release --self-contained -p:PublishSingleFile=true -o publish
 
 ## Usage
 
-Run `VncKeyBridge.exe` on the machine running the VNC server and keep it open while connected. Press Ctrl+C to stop.
+Run `ScreenFix.exe` on the machine running the VNC server and keep it open while connected. Press Ctrl+C to stop.
 
 ## Limitations
 

@@ -1,8 +1,8 @@
 ﻿using System.Runtime.InteropServices;
-using VncKeyBridge;
+using ScreenFix;
 
 using var hook = new InjectedKeyHook(ScanCodeSender.Send);
-Console.WriteLine("VncKeyBridge running: injected keys are re-sent as scan codes. Ctrl+C to stop.");
+Console.WriteLine("ScreenFix running: injected keys are re-sent as scan codes. Ctrl+C to stop.");
 MessageLoop.Run();
 
 static class MessageLoop
