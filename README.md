@@ -22,7 +22,10 @@ VncKeyBridge.exe --list                 # list keyboards and hardware IDs
 VncKeyBridge.exe                        # send through the first keyboard
 VncKeyBridge.exe --device VID_1234      # send through the keyboard whose hardware ID contains the text
 VncKeyBridge.exe --uninstall            # remove the driver, then reboot
+VncKeyBridge.exe --scancode             # no driver or admin: re-send as SendInput scan codes
 ```
+
+`--scancode` fixes applications that only reject input without scan codes. Windows still flags it as injected, so applications that reject any injected input need the driver mode.
 
 Keys from the physical keyboard pass through untouched. Any injected input (AutoHotkey, on-screen keyboard) is also converted.
 

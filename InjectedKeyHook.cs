@@ -57,7 +57,7 @@ sealed class InjectedKeyHook : IDisposable
 
     IntPtr HookProc(int code, IntPtr wParam, ref KbdLlHookStruct info)
     {
-        if (code < 0 || (info.Flags & LLKHF_INJECTED) == 0)
+        if (code < 0 || (info.Flags & LLKHF_INJECTED) == 0 || info.ExtraInfo == ScanCodeSender.Signature)
             return CallNextHookEx(_hook, code, wParam, ref info);
 
         var (scanCode, extended) = ResolveScanCode(info);

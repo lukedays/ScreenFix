@@ -6,6 +6,14 @@ if (args is ["--install"])
 if (args is ["--uninstall"])
     return DriverInstaller.Run("/uninstall");
 
+if (args is ["--scancode"])
+{
+    using var scanCodeHook = new InjectedKeyHook(ScanCodeSender.Send);
+    Console.WriteLine("VncKeyBridge running: injected keys are re-sent as scan codes (no driver). Ctrl+C to stop.");
+    MessageLoop.Run();
+    return 0;
+}
+
 using var keyboard = new InterceptionKeyboard();
 
 if (args is ["--list"])
