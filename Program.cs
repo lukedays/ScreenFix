@@ -1,13 +1,18 @@
 ﻿using System.Runtime.InteropServices;
 using VncKeyBridge;
 
+if (args is ["--install"])
+    return DriverInstaller.Run("/install");
+if (args is ["--uninstall"])
+    return DriverInstaller.Run("/uninstall");
+
 using var keyboard = new InterceptionKeyboard();
 
 if (args is ["--list"])
 {
     foreach (var (device, hardwareId) in keyboard.ListKeyboards())
         Console.WriteLine($"{device}: {hardwareId}");
-    return;
+    return 0;
 }
 
 string? hardwareIdFilter = args is ["--device", var filter] ? filter : null;
@@ -16,6 +21,7 @@ Console.WriteLine($"Sending as: {keyboard.SelectKeyboard(hardwareIdFilter)}");
 using var hook = new InjectedKeyHook(keyboard.Send);
 Console.WriteLine("VncKeyBridge running: injected keys are re-sent as hardware keys. Ctrl+C to stop.");
 MessageLoop.Run();
+return 0;
 
 static class MessageLoop
 {
